@@ -24,9 +24,12 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBar(
+      //   title: const Text('Scriptgram'),
+      // ),
       body: SafeArea(
           child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 32),
+        padding: const EdgeInsets.symmetric(horizontal: 32),
         width: double.infinity,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,11 +42,6 @@ class _LoginScreenState extends State<LoginScreen> {
             Image.asset(
               'assets/ic_scriptgram.png',
               height: 64,),
-            // SvgPicture.asset(
-            //   'assets/ic_instagram.svg',
-            //   color: primaryColor,
-            //   height: 64,
-            // ),
             const SizedBox(height: 64),
             // text field input for email
             TextFieldInput(
