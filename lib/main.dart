@@ -6,6 +6,7 @@ import 'package:main_app/responsive/responsive_layout.dart';
 import 'package:main_app/responsive/web_screen_layout.dart';
 import 'package:main_app/screens/login_screen.dart';
 import 'package:main_app/utils/colors.dart';
+import 'package:main_app/screens/splash.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
       //   mobileScreenLayout: MobileScreenLayout(),
       //   webScreenLayout: WebScreenLayout(),
       // ),
-      home: const LoginScreen(),
+      home: splash(),
     );
   }
 }
