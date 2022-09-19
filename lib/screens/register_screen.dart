@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:main_app/screens/login_screen.dart';
 import 'package:main_app/utils/colors.dart';
 import 'package:main_app/widgets/text_field_input.dart';
 
@@ -18,22 +19,20 @@ class RegisterScreen extends StatelessWidget {
       //   title: const Text('Scriptgram'),
       // ),
       body: SafeArea(
-        child: Container(
-          
+          child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 32),
         width: double.infinity,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            // Flexible(child: Container(), flex: 2),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 40),
-                Container(
-                  child: const Text(
-                    "Register",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
+                const Text(
+                  "Register",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 10),
                 Container(
@@ -103,7 +102,35 @@ class RegisterScreen extends StatelessWidget {
             const SizedBox(
               height: 12,
             ),
-            Flexible(child: Container(), flex: 2),
+            // Flexible(child: Container(), flex: ),
+            Flexible(
+                child: Row(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginScreen()));
+                      },
+                      
+                      child: Container(
+                        child: const Text(
+                          "Alredy Have account ? Login",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 8,
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ))
 
             // Transitioning to signing up
           ],
