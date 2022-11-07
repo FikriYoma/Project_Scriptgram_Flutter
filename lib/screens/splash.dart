@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:main_app/screens/login_screen.dart';
 import 'dart:async';
+import 'package:main_app/screens/profile.dart';
 
 class splash extends StatefulWidget{
 
@@ -20,7 +21,7 @@ class _SplashScreen extends State<splash>{
   splashscreenStart() async{
     var duration = const Duration(seconds: 5);
     return Timer(duration, (){
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const LoginScreen()),
 
@@ -32,7 +33,7 @@ class _SplashScreen extends State<splash>{
   Widget build(BuildContext context){
 
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(44, 54, 57, 1),
+      // backgroundColor: const Color.fromRGBO(44, 54, 57, 1),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -40,7 +41,7 @@ class _SplashScreen extends State<splash>{
           children: <Widget>[
             
             Image.asset(
-              'assets/ic_scriptgram.png',
+              'assets/ic_scriptgram_2.png',
               height: 128,),
             
           ],

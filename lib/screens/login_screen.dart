@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:main_app/screens/profile.dart';
 import 'package:main_app/screens/register_screen.dart';
 import 'package:main_app/utils/colors.dart';
 import 'package:main_app/widgets/text_field_input.dart';
+import 'package:main_app/screens/signup.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -40,8 +42,9 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             // svg image
             Image.asset(
-              'assets/ic_scriptgram.png',
-              height: 64,),
+              'assets/ic_scriptgram_2.png',
+              height: 64,
+            ),
             const SizedBox(height: 64),
             // text field input for email
             TextFieldInput(
@@ -63,19 +66,31 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 24,
             ),
             // button login
-            InkWell(
-              child: Container(
-                child: const Text('Log in'),
-                width: double.infinity,
-                alignment: Alignment.center,
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                decoration: const ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(4),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ProfileScreen()),
+                );
+              },
+              child: InkWell(
+                child: Container(
+                  child: const Text(
+                    'Log in',
+                    style: TextStyle(fontWeight: FontWeight.bold, color: white),
+                  ),
+                  width: double.infinity,
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  decoration: const ShapeDecoration(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(4),
+                        ),
                       ),
-                    ),
-                    color: blueColor),
+                      color: blueColor),
+                ),
               ),
             ),
             const SizedBox(
@@ -95,13 +110,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterScreen()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SignupScreen()));
                   },
                   child: Container(
                     child: const Text(
                       "Sign Up",
                       style: TextStyle(fontWeight: FontWeight.bold),
-                      
                     ),
                     padding: const EdgeInsets.symmetric(
                       vertical: 8,
