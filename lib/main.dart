@@ -10,7 +10,7 @@ import 'package:main_app/screens/splash.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  if (kIsWeb) {
+  if (kIsWeb) { 
     await Firebase.initializeApp(
       options: const FirebaseOptions(
         apiKey: "AIzaSyAIMSAU0nODfHfR4jTlIYOh8dYAnm46TuQ",
@@ -35,9 +35,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Scriptgram Clone',
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: mobileBackgroundColor,
-      ),
+      // theme: ThemeData.dark().copyWith(
+      //   scaffoldBackgroundColor: mobileBackgroundColor,
+      // ),
+
       // home: ResponsiveLayout(
       //   mobileScreenLayout: MobileScreenLayout(),
       //   webScreenLayout: WebScreenLayout(),
