@@ -7,10 +7,12 @@ import 'package:main_app/responsive/web_screen_layout.dart';
 import 'package:main_app/screens/login_screen.dart';
 import 'package:main_app/utils/colors.dart';
 import 'package:main_app/screens/splash.dart';
+import 'package:main_app/provider/regist.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  if (kIsWeb) { 
+  if (kIsWeb) {
     await Firebase.initializeApp(
       options: const FirebaseOptions(
         apiKey: "AIzaSyAIMSAU0nODfHfR4jTlIYOh8dYAnm46TuQ",
@@ -32,18 +34,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Scriptgram Clone',
-      // theme: ThemeData.dark().copyWith(
-      //   scaffoldBackgroundColor: mobileBackgroundColor,
-      // ),
+    return ChangeNotifierProvider(
+      create: (context) => User(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Scriptgram Clone',
+        // theme: ThemeData.dark().copyWith(
+        //   scaffoldBackgroundColor: mobileBackgroundColor,
+        // ),
 
-      // home: ResponsiveLayout(
-      //   mobileScreenLayout: MobileScreenLayout(),
-      //   webScreenLayout: WebScreenLayout(),
-      // ),
-      home: splash(),
+        // home: ResponsiveLayout(
+        //   mobileScreenLayout: MobileScreenLayout(),
+        //   webScreenLayout: WebScreenLayout(),
+        // ),
+        home: splash(),
+      ),
     );
   }
 }

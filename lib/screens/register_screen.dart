@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:main_app/provider/regist.dart';
 import 'package:main_app/screens/login_screen.dart';
 import 'package:main_app/utils/colors.dart';
 import 'package:main_app/widgets/text_field_input.dart';
+import 'package:main_app/provider/regist.dart';
+import 'package:provider/provider.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<User>(context, listen: false);
     final TextEditingController _emailController = TextEditingController();
     final TextEditingController _usernameController = TextEditingController();
 
@@ -43,6 +47,7 @@ class RegisterScreen extends StatelessWidget {
                 ),
               ],
             ),
+
             const SizedBox(height: 30),
             // svg image
             // Image.asset(
@@ -50,7 +55,7 @@ class RegisterScreen extends StatelessWidget {
             //   height: 64,),
             TextFieldInput(
               hintText: 'Enter your Username',
-              textInputType: TextInputType.emailAddress,
+              textInputType: TextInputType.text,
               textEditingController: _usernameController,
             ),
 
@@ -74,29 +79,46 @@ class RegisterScreen extends StatelessWidget {
             const SizedBox(
               height: 24,
             ),
-            TextFieldInput(
-              hintText: 'Repeat your password',
-              textInputType: TextInputType.text,
-              textEditingController: _passwordController2,
-              isPass: true,
-            ),
+            // Te
+
             const SizedBox(
               height: 24,
             ),
             // button login
-            InkWell(
-              child: Container(
-                child: const Text('Register'),
-                width: double.infinity,
-                alignment: Alignment.center,
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                decoration: const ShapeDecoration(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(4),
-                      ),
+            GestureDetector(
+              onTap: () {
+                user
+                    .addUser(
+                  _usernameController.text,
+                  _emailController.text,
+                  _passwordController.text,
+                )
+                    .then((response) {
+                  // print("Kembali ke Home & kasih notif snack bar");
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text("Registrasi Berhasil"),
+                      duration: Duration(seconds: 2),
                     ),
-                    color: blueColor),
+                  );
+                  Navigator.pop(context);
+                });
+              },
+              child: InkWell(
+                child: Container(
+                  child: const Text('Register',
+                      style: TextStyle(color: Colors.white)),
+                  width: double.infinity,
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  decoration: const ShapeDecoration(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(4),
+                        ),
+                      ),
+                      color: blueColor),
+                ),
               ),
             ),
             const SizedBox(
@@ -111,9 +133,12 @@ class RegisterScreen extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        Navigator.pop(context);
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginScreen()),
+                        );
                       },
-                      
                       child: Container(
                         child: const Text(
                           "Alredy Have account ? Login",
@@ -128,8 +153,6 @@ class RegisterScreen extends StatelessWidget {
                 )
               ],
             ))
-
-            // Transitioning to signing up
           ],
         ),
       )),
