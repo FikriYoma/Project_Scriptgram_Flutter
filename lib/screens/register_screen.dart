@@ -94,11 +94,10 @@ class RegisterScreen extends StatelessWidget {
                   _passwordController.text,
                 )
                     .then((response) {
-                  // print("Kembali ke Home & kasih notif snack bar");
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                       content: Text("Registrasi Berhasil"),
-                      duration: Duration(seconds: 2),
+                      duration: Duration(seconds: 4),
                     ),
                   );
                   Navigator.pop(context);
