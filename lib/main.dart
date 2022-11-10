@@ -7,7 +7,7 @@ import 'package:main_app/responsive/web_screen_layout.dart';
 import 'package:main_app/screens/login_screen.dart';
 import 'package:main_app/utils/colors.dart';
 import 'package:main_app/screens/splash.dart';
-import 'package:main_app/provider/regist.dart';
+import 'package:main_app/provider/registerProvider.dart';
 import 'package:provider/provider.dart';
 
 void main() async {

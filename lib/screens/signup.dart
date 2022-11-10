@@ -6,7 +6,7 @@ import 'package:main_app/utils/colors.dart';
 import 'package:main_app/widgets/text_field_input.dart';
 
 import 'package:provider/provider.dart';
-import 'package:main_app/provider/regist.dart';
+import 'package:main_app/provider/registerProvider.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);

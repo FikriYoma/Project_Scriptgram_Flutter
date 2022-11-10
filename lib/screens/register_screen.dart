@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:main_app/provider/regist.dart';
+import 'package:main_app/provider/registerProvider.dart';
 import 'package:main_app/screens/login_screen.dart';
 import 'package:main_app/utils/colors.dart';
 import 'package:main_app/widgets/text_field_input.dart';
-import 'package:main_app/provider/regist.dart';
+import 'package:main_app/provider/registerProvider.dart';
 import 'package:provider/provider.dart';
 
 class RegisterScreen extends StatelessWidget {
